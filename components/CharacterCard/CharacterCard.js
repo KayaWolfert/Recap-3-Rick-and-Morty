@@ -1,5 +1,4 @@
 export default function CharacterCard() {
-  //   const cardContainer = document.querySelector('[data-js="card-container"]');
   const newCard = document.createElement("li");
   newCard.classList.add("card");
   newCard.innerHTML = `<div class="card__image-container">
