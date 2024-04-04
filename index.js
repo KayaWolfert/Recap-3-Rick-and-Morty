@@ -1,5 +1,5 @@
 import CharacterCard from "./components/CharacterCard/CharacterCard.js";
-CharacterCard();
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -15,17 +15,21 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-async function fetchCharacters() {
+export async function fetchCharacters() {
   const response = await fetch("https://rickandmortyapi.com/api/character");
   const data = await response.json();
+  console.log(data.results);
   return data.results;
+
 }
+
 
 fetchDataAndRender();
 async function fetchDataAndRender() {
   const serienCharacters = await fetchCharacters();
+  console.log(serienCharacters);
   serienCharacters.forEach((character) => {
-    const newCard = CharacterCard();
+    const newCard = CharacterCard(character);
     cardContainer.append(newCard);
   });
 }
