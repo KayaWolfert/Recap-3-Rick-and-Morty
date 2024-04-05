@@ -12,6 +12,7 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
+
 let currentPage = 1;
 let maxPageCount = 1;
 let searchQuery = ""; // Assuming you will update this dynamically
@@ -45,6 +46,8 @@ export async function fetchCharacters() {
   pagination.textContent = `Page ${currentPage} of ${maxPageCount}`;
   return filteredCharacters;
 }
+
+
 searchBar.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent default form submission
 
@@ -58,9 +61,11 @@ searchBar.addEventListener("submit", (event) => {
   fetchDataAndRender();
 });
 
+
 fetchDataAndRender();
 async function fetchDataAndRender() {
   const serienCharacters = await fetchCharacters();
+
   cardContainer.innerHTML = "";
 
   serienCharacters.forEach((character) => {
@@ -68,6 +73,9 @@ async function fetchDataAndRender() {
 
     // Check if character name matches search query (assuming name property)
 
+
     cardContainer.append(newCard);
   });
 }
+
+
